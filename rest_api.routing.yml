@@ -1,0 +1,23 @@
+rest_api.get_menu:
+  path: '/api/menu/{name}'
+  defaults: { _controller: '\Drupal\rest_api\Controller\APIController::get_menu' }
+  methods:  [GET]
+  requirements:
+    _access: 'TRUE'
+    name: ^[a-zA-Z0-9_]+
+
+rest_api.get_node:
+  path: '/api/node/{node_id}'
+  defaults: { _controller: '\Drupal\rest_api\Controller\APIController::get_node' }
+  methods:  [GET]
+  requirements:
+    _access: 'TRUE'
+    node_id: ^[0-9_]+
+
+rest_api.get_nodes:
+  path: '/api/node'
+  defaults: { _controller: '\Drupal\rest_api\Controller\APIController::get_nodes' }
+  methods:  [GET]
+  requirements:
+    _access: 'TRUE'
+
