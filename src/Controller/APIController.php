@@ -42,9 +42,9 @@ class APIController extends ControllerBase
         $n = $node->toArray();
 
         $images = array(
-          'field_thumbnail',
-          'field_image',
-      );
+            'field_thumbnail',
+            'field_image',
+        );
 
         //Iterates over fields named field_thumbnail and field_image to try and generate a URL for that image.
         foreach ($n as $key => $value) {
@@ -61,10 +61,10 @@ class APIController extends ControllerBase
 
         //Queries for comments left on a certain node.
         $cids = \Drupal::entityQuery('comment')
-          ->condition('entity_id', $node->id())
-          ->condition('entity_type', 'node')
-          ->sort('cid', 'DESC')
-          ->execute();
+            ->condition('entity_id', $node->id())
+            ->condition('entity_type', 'node')
+            ->sort('cid', 'DESC')
+            ->execute();
 
         $comments = [];
 
@@ -129,8 +129,8 @@ class APIController extends ControllerBase
         }
 
         $results = array(
-          'results' => array(),
-      );
+            'results' => array(),
+        );
 
         //Clones the query to return a total result count.
         $countQuery = clone $query;
@@ -152,9 +152,9 @@ class APIController extends ControllerBase
         $results['results_count'] = count($nids);
 
         $query = array(
-          'limit' => $limit,
-          'type' => $type,
-      );
+            'limit' => $limit,
+            'type' => $type,
+        );
 
         //Builds previous link.
         if ($page > 0) {
@@ -205,9 +205,9 @@ class APIController extends ControllerBase
     private function createErrorResponse($code, $message)
     {
         return new JsonResponse(array(
-      'code' => $code,
-      'message' => $message,
-      'type' => 'error',
-    ));
+            'code' => $code,
+            'message' => $message,
+            'type' => 'error',
+        ));
     }
 }
